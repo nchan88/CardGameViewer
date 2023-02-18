@@ -5,7 +5,7 @@ public class Card {
     private String suit;
     private int point;
     //initialize image
-    private Image cardImage;
+    private final Image cardImage;
 
     final private static int MARGIN = 50;
     public Card(String rank, String suit, int point, Image cardImage) {
@@ -38,24 +38,24 @@ public class Card {
         this.point = point;
     }
 
+    //I pass an index into draw here so I can draw the card based on it's position in the hand.
     public void draw(Graphics g, CrazyViewer c, String player, int index) {
 
         g.setFont(new Font("Serif", Font.PLAIN, 50));
         g.setColor(Color.BLACK);
         g.drawString(c.getG().getP2().getName(), 25, 80);
         g.drawString(c.getG().getP1().getName(), 25, 550);
-
+        //Checks if player has won and prints corresponding messages.
         if (c.getG().getP1().getHand().size() == 0)
         {
-            g.drawString(c.getG().getP1().getName() + "WINS!!!", 125, 575);
+            g.drawString(c.getG().getP1().getName() + " WINS!!!", 300, 575);
         }
 
         if (c.getG().getP2().getHand().size() == 0)
         {
-            g.drawString(c.getG().getP2().getName() + "WINS!!!", 125, 100);
+            g.drawString(c.getG().getP2().getName() + " WINS!!!", 300, 100);
         }
-
-
+        //Prints each player's cards on opposite ends of the screen.
         if (player.equals("P1"))
         {
             g.drawImage(cardImage, 120 * index + MARGIN, 575, 100, 155, c);
@@ -65,10 +65,6 @@ public class Card {
         {
             g.drawImage(cardImage, 120 * index + MARGIN, 100, 100, 155, c);
         }
-
-
-
-//    }
     }
     //This overloaded constructor is used so I don't have to have a boolean value isActive
     //This constructor is only called on the active card, which has a designated spot regardless of the player

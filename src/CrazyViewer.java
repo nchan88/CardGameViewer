@@ -26,11 +26,10 @@ public class CrazyViewer extends JFrame {
         //creating white background
         g.setColor(Color.white);
         g.fillRect(0, 0, 1000, 750);
+        //Draws Green Felt Table Background
         g.drawImage(new ImageIcon("Resources/CardGameBackground.png").getImage(), 0, 0, this);
-        //draws face up card
-        //should i overload my constructor in card to accept a two parameter constructor instead of doing this where i leave player blank?
+        //Draws Active Card
         game.getCurrentCard().draw(g, this);
-        //can i use this to print the cards in different locations?
         //I was still able to use a for each loop while also passing an index as a parameter by using the indexOf method
         for (Card c : game.getP1().getHand())
         {

@@ -3,7 +3,8 @@ public class Game {
     //needs to be static to be used in main
     static Scanner reader = new Scanner(System.in);
     //This Magic Number can be modified to change the length of the game, the more cards the longer the game will take
-    final int INITIAL_NUM_CARDS = 1;
+    //Minimum 2 Cards must be in each hand initially
+    final int INITIAL_NUM_CARDS = 3;
     final String rank[] = {"A", "2", "3", "4", "5", "6", "7", "8", "9", "10", "J", "Q", "K"};
     final String suits[] = {"Spades", "Hearts", "Diamonds", "Clubs"};
     final int values[] = {1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 10, 10, 10};
